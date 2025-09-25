@@ -51,7 +51,7 @@ if [[ -n "$OLD_PID" && "$OLD_PID" != "$PID" ]]; then
     log "Process '${PROCESS_NAME}' was restarted: old_pid=${OLD_PID} new_pid=${PID}"
 fi
 
-# Проверка доступности монитор-сервера
+# Проверка доступности сервера
 HTTP_CODE="$(curl --silent --show-error --max-time "$CURL_TIMEOUT" -o /dev/null -w "%{http_code}" "$MONITOR_URL" 2>/dev/null || echo "")"
 
 if [[ -z "$HTTP_CODE" ]]; then

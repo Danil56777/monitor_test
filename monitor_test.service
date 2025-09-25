@@ -1,0 +1,16 @@
+[Unit]
+Description=Monitor script for process 'test' (one-shot)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/monitor_test.sh
+User=root
+Group=root
+WorkingDirectory=/var/lib/monitoring
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
